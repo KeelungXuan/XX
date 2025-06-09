@@ -1,290 +1,297 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en" class="scroll-smooth">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>HuiLing (XuanXuan) Huang - Personal Website</title>\
-    <script src="https://cdn.tailwindcss.com"></script>\
-    <link rel="preconnect" href="https://fonts.googleapis.com">\
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\
-    <style>\
-        body \{\
-            font-family: 'Inter', sans-serif;\
-            background-color: #f8fafc; /* bg-slate-50 */\
-        \}\
-        .section-title \{\
-            @apply text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center;\
-        \}\
-        .animated-section \{\
-            opacity: 0;\
-            transform: translateY(30px);\
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;\
-        \}\
-        .animated-section.is-visible \{\
-            opacity: 1;\
-            transform: translateY(0);\
-        \}\
-        .skill-card \{\
-            transition: transform 0.3s ease, box-shadow 0.3s ease;\
-        \}\
-        .skill-card:hover \{\
-            transform: translateY(-5px);\
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\
-        \}\
-        #hero-canvas \{\
-            position: absolute;\
-            top: 0;\
-            left: 0;\
-            width: 100%;\
-            height: 100%;\
-            z-index: 0;\
-        \}\
-        .hero-content \{\
-            position: relative;\
-            z-index: 1;\
-        \}\
-    </style>\
-</head>\
-<body class="text-slate-700">\
-\
-    <!-- Header & Navbar -->\
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">\
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">\
-            <a href="#" class="text-2xl font-bold text-slate-800">HuiLing Huang</a>\
-            <div class="hidden md:flex space-x-6 items-center">\
-                <a href="#about" class="text-slate-600 hover:text-indigo-600 transition duration-300">About</a>\
-                <a href="#experience" class="text-slate-600 hover:text-indigo-600 transition duration-300">Experience</a>\
-                <a href="#skills" class="text-slate-600 hover:text-indigo-600 transition duration-300">Skills</a>\
-                <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Contact</a>\
-            </div>\
-            <button id="mobile-menu-button" class="md:hidden text-slate-800">\
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>\
-            </button>\
-        </nav>\
-        <!-- Mobile Menu -->\
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">\
-            <a href="#about" class="block py-2 text-slate-600 hover:text-indigo-600">About</a>\
-            <a href="#experience" class="block py-2 text-slate-600 hover:text-indigo-600">Experience</a>\
-            <a href="#skills" class="block py-2 text-slate-600 hover:text-indigo-600">Skills</a>\
-            <a href="#contact" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-full hover:bg-indigo-700">Contact</a>\
-        </div>\
-    </header>\
-\
-    <main>\
-        <!-- Hero Section -->\
-        <section id="hero" class="relative overflow-hidden bg-slate-900">\
-            <canvas id="hero-canvas"></canvas>\
-            <div class="hero-content container mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center">\
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">HuiLing (XuanXuan) Huang</h1>\
-                <p class="mt-4 text-lg md:text-xl text-slate-300">Architecting Growth in Digital Media & Tech</p>\
-                <p class="mt-6 max-w-3xl text-base text-slate-400">\
-                    A seasoned executive architecting growth and transformation at the intersection of digital media, content, and technology.\
-                </p>\
-            </div>\
-        </section>\
-\
-        <!-- About Me Section -->\
-        <section id="about" class="py-24 animated-section">\
-            <div class="container mx-auto px-6">\
-                <h2 class="section-title">About Me</h2>\
-                <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto">\
-                    <p class="mb-4 text-lg text-slate-800">\
-                        With a career spanning over two decades, I've been at the forefront of the digital media revolution, specializing in Audio & Video Product Management. My expertise is rooted in a deep-seated passion for the internet's power to connect content with audiences globally.\
-                    </p>\
-                    <p class="mb-4 text-slate-600">\
-                        My journey has equipped me with a comprehensive mastery of the music industry's value chain\'97from strategic content acquisition and rights negotiation to innovative marketing and multi-platform distribution. I thrive in high-stakes, fast-paced environments, consistently delivering under pressure.\
-                    </p>\
-                    <p class="text-slate-600">\
-                        My track record is defined by transformative leadership. I orchestrated the turnaround of JOOX Hong Kong, steering the business from a loss to profitability within three years. In Taiwan, I spearheaded the strategic rebranding of MyMusic, successfully capturing the youth market and revitalizing the service.\
-                    </p>\
-                </div>\
-            </div>\
-        </section>\
-\
-        <!-- Experience Section -->\
-        <section id="experience" class="py-24 bg-slate-100 animated-section">\
-            <div class="container mx-auto px-6">\
-                <h2 class="section-title">Professional Experience</h2>\
-                <div class="space-y-8 max-w-4xl mx-auto">\
-                    <!-- Experience Cards -->\
-                    <div class="bg-white p-6 rounded-lg shadow-md skill-card">\
-                        <p class="text-sm text-indigo-600 font-semibold">Jan 2023 - Mar 2025</p>\
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">VP of Business Development</h3>\
-                        <p class="text-slate-600 mb-3">JingMi, Taiwan</p>\
-                        <p class="text-slate-500">As a key leader in a pioneering hardware security startup, I drove business development strategy, identifying pivotal market opportunities and forging strategic partnerships. I bridged the gap between business and engineering, contributing directly to the advancement of next-generation cryptography chips and trusted platforms.</p>\
-                    </div>\
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">\
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2019 - 2022</p>\
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">Head of JOOX Hong Kong & Head of License</h3>\
-                        <p class="text-slate-600 mb-3">Tencent, Hong Kong</p>\
-                        <p class="text-slate-500">As Head of JOOX HK, I held full P&L responsibility, steering the streaming service to market leadership and profitability. I cultivated a high-performance culture that resulted in 300% growth in B2B2C sales and 150% in B2C sales, while optimizing content acquisition costs.</p>\
-                    </div>\
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">\
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2017 - 2018</p>\
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">VP of MyMusic / Deputy Director</h3>\
-                        <p class="text-slate-600 mb-3">Taiwan Mobile, Taipei, Taiwan</p>\
-                        <p class="text-slate-500">I redefined the brand identity and vision for MyMusic, repositioning the service for a younger demographic. By leading cross-functional teams across product, marketing, and sales, I reshaped the user experience and drove engagement on emerging smart devices.</p>\
-                    </div>\
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">\
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2011 - Mar 2016</p>\
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">Sr. Director, Global Content Division</h3>\
-                        <p class="text-slate-600 mb-3">HTC Corporation, Taipei, Taiwan</p>\
-                        <p class="text-slate-500">I directed global content strategy, spearheading the launch of the HTC Watch movie service across 16 countries. My role encompassed high-stakes negotiations for content rights, virtual reality experiences, and major celebrity endorsements, including the landmark deal with Robert Downey Jr.</p>\
-                    </div>\
-                </div>\
-            </div>\
-        </section>\
-\
-        <!-- Skills Section -->\
-        <section id="skills" class="py-24 animated-section">\
-            <div class="container mx-auto px-6">\
-                <h2 class="section-title">Core Competencies</h2>\
-                <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">\
-                    <div class="bg-white p-5 rounded-lg skill-card">Strategic Leadership</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Business Development</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">P&L Management</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Digital Content Strategy</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Content Acquisition</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Negotiating & Communication</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Team Building & Motivation</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Product Management</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Brand Management</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Marketing & Growth</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Internet & Mobile Insights</div>\
-                    <div class="bg-white p-5 rounded-lg skill-card">Adaptability</div>\
-                </div>\
-            </div>\
-        </section>\
-\
-        <!-- Contact Section -->\
-        <section id="contact" class="bg-indigo-700 text-white animated-section">\
-            <div class="container mx-auto px-6 py-20 text-center">\
-                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>\
-                <p class="mb-8 max-w-2xl mx-auto text-indigo-200">I am passionate about building what's next in digital media and technology. For collaborations, strategic partnerships, or consulting opportunities, please connect with me through professional networks.</p>\
-                <!-- Contact details removed as per request -->\
-            </div>\
-        </section>\
-    </main>\
-\
-    <!-- Footer -->\
-    <footer class="bg-slate-800 text-white">\
-        <div class="container mx-auto px-6 py-6 text-center text-slate-400">\
-            <p>&copy; 2025 HuiLing (XuanXuan) Huang. All Rights Reserved.</p>\
-        </div>\
-    </footer>\
-\
-    <script>\
-        // --- Mobile menu toggle ---\
-        const mobileMenuButton = document.getElementById('mobile-menu-button');\
-        const mobileMenu = document.getElementById('mobile-menu');\
-        mobileMenuButton.addEventListener('click', () => \{\
-            mobileMenu.classList.toggle('hidden');\
-        \});\
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');\
-        for (let link of mobileMenuLinks) \{\
-            link.addEventListener('click', () => \{\
-                 mobileMenu.classList.add('hidden');\
-            \});\
-        \}\
-\
-        // --- Intersection Observer for animations ---\
-        const animatedSections = document.querySelectorAll('.animated-section');\
-        const observer = new IntersectionObserver((entries) => \{\
-            entries.forEach(entry => \{\
-                if (entry.isIntersecting) \{\
-                    entry.target.classList.add('is-visible');\
-                    observer.unobserve(entry.target);\
-                \}\
-            \});\
-        \}, \{\
-            threshold: 0.1 \
-        \});\
-        animatedSections.forEach(section => \{\
-            observer.observe(section);\
-        \});\
-\
-        // --- Hero Canvas Particle Animation ---\
-        const canvas = document.getElementById('hero-canvas');\
-        const ctx = canvas.getContext('2d');\
-        let particles = [];\
-        \
-        function resizeCanvas() \{\
-            canvas.width = canvas.offsetWidth;\
-            canvas.height = canvas.offsetHeight;\
-        \}\
-\
-        function createParticles() \{\
-            particles = [];\
-            const particleCount = Math.floor(canvas.width * canvas.height / 10000);\
-            for (let i = 0; i < particleCount; i++) \{\
-                particles.push(\{\
-                    x: Math.random() * canvas.width,\
-                    y: Math.random() * canvas.height,\
-                    vx: (Math.random() - 0.5) * 0.5,\
-                    vy: (Math.random() - 0.5) * 0.5,\
-                    radius: Math.random() * 1.5 + 0.5\
-                \});\
-            \}\
-        \}\
-\
-        function animate() \{\
-            ctx.clearRect(0, 0, canvas.width, canvas.height);\
-            \
-            particles.forEach(p => \{\
-                p.x += p.vx;\
-                p.y += p.vy;\
-\
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;\
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;\
-\
-                ctx.beginPath();\
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);\
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';\
-                ctx.fill();\
-            \});\
-\
-            // Connect nearby particles\
-            for (let i = 0; i < particles.length; i++) \{\
-                for (let j = i + 1; j < particles.length; j++) \{\
-                    const dx = particles[i].x - particles[j].x;\
-                    const dy = particles[i].y - particles[j].y;\
-                    const dist = Math.sqrt(dx * dx + dy * dy);\
-\
-                    if (dist < 100) \{\
-                        ctx.beginPath();\
-                        ctx.moveTo(particles[i].x, particles[i].y);\
-                        ctx.lineTo(particles[j].x, particles[j].y);\
-                        ctx.strokeStyle = `rgba(255, 255, 255, $\{1 - dist / 100\})`;\
-                        ctx.lineWidth = 0.5;\
-                        ctx.stroke();\
-                    \}\
-                \}\
-            \}\
-\
-            requestAnimationFrame(animate);\
-        \}\
-\
-        window.addEventListener('load', () => \{\
-            resizeCanvas();\
-            createParticles();\
-            animate();\
-        \});\
-\
-        window.addEventListener('resize', () => \{\
-             resizeCanvas();\
-             createParticles();\
-        \});\
-\
-    </script>\
-</body>\
-</html>\
-\
-}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en" class="scroll-smooth"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;HuiLing (XuanXuan) Huang - Personal Website&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8fafc; /* bg-slate-50 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>@apply text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.animated-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(30px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.6s ease-out, transform 0.6s ease-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.animated-section.is-visible {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.skill-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s ease, box-shadow 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.skill-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#hero-canvas {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="text-slate-700"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header &amp; Navbar --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="container mx-auto px-6 py-4 flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="text-2xl font-bold text-slate-800"&gt;HuiLing Huang&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:flex space-x-6 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#about" class="text-slate-600 hover:text-indigo-600 transition duration-300"&gt;About&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#experience" class="text-slate-600 hover:text-indigo-600 transition duration-300"&gt;Experience&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#skills" class="text-slate-600 hover:text-indigo-600 transition duration-300"&gt;Skills&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300"&gt;Contact&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="mobile-menu-button" class="md:hidden text-slate-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Mobile Menu --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="mobile-menu" class="hidden md:hidden px-6 pb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#about" class="block py-2 text-slate-600 hover:text-indigo-600"&gt;About&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#experience" class="block py-2 text-slate-600 hover:text-indigo-600"&gt;Experience&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#skills" class="block py-2 text-slate-600 hover:text-indigo-600"&gt;Skills&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#contact" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-full hover:bg-indigo-700"&gt;Contact&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Hero Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="hero" class="relative overflow-hidden bg-slate-900"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;canvas id="hero-canvas"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hero-content container mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight"&gt;HuiLing (XuanXuan) Huang&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-4 text-lg md:text-xl text-slate-300"&gt;Architecting Growth in Digital Media &amp; Tech&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-6 max-w-3xl text-base text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>A seasoned executive architecting growth and transformation at the intersection of digital media, content, and technology.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- About Me Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="about" class="py-24 animated-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4 text-lg text-slate-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>With a career spanning over two decades, I've been at the forefront of the digital media revolution, specializing in Audio &amp; Video Product Management. My expertise is rooted in a deep-seated passion for the internet's power to connect content with audiences globally.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4 text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>My journey has equipped me with a comprehensive mastery of the music industry's value chain—from strategic content acquisition and rights negotiation to innovative marketing and multi-platform distribution. I thrive in high-stakes, fast-paced environments, consistently delivering under pressure.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>My track record is defined by transformative leadership. I orchestrated the turnaround of JOOX Hong Kong, steering the business from a loss to profitability within three years. In Taiwan, I spearheaded the strategic rebranding of MyMusic, successfully capturing the youth market and revitalizing the service.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Experience Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="experience" class="py-24 bg-slate-100 animated-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="section-title"&gt;Professional Experience&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-8 max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Experience Cards --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-lg shadow-md skill-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-indigo-600 font-semibold"&gt;Jan 2023 - Mar 2025&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-slate-800 mt-1"&gt;VP of Business Development&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 mb-3"&gt;JingMi, Taiwan&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-500"&gt;As a key leader in a pioneering hardware security startup, I drove business development strategy, identifying pivotal market opportunities and forging strategic partnerships. I bridged the gap between business and engineering, contributing directly to the advancement of next-generation cryptography chips and trusted platforms.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="bg-white p-6 rounded-lg shadow-md skill-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-indigo-600 font-semibold"&gt;Mar 2019 - 2022&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-slate-800 mt-1"&gt;Head of JOOX Hong Kong &amp; Head of License&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 mb-3"&gt;Tencent, Hong Kong&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-500"&gt;As Head of JOOX HK, I held full P&amp;L responsibility, steering the streaming service to market leadership and profitability. I cultivated a high-performance culture that resulted in 300% growth in B2B2C sales and 150% in B2C sales, while optimizing content acquisition costs.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="bg-white p-6 rounded-lg shadow-md skill-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-indigo-600 font-semibold"&gt;Mar 2017 - 2018&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-slate-800 mt-1"&gt;VP of MyMusic / Deputy Director&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 mb-3"&gt;Taiwan Mobile, Taipei, Taiwan&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-500"&gt;I redefined the brand identity and vision for MyMusic, repositioning the service for a younger demographic. By leading cross-functional teams across product, marketing, and sales, I reshaped the user experience and drove engagement on emerging smart devices.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="bg-white p-6 rounded-lg shadow-md skill-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-indigo-600 font-semibold"&gt;Mar 2011 - Mar 2016&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-slate-800 mt-1"&gt;Sr. Director, Global Content Division&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 mb-3"&gt;HTC Corporation, Taipei, Taiwan&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-500"&gt;I directed global content strategy, spearheading the launch of the HTC Watch movie service across 16 countries. My role encompassed high-stakes negotiations for content rights, virtual reality experiences, and major celebrity endorsements, including the landmark deal with Robert Downey Jr.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Skills Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="skills" class="py-24 animated-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="section-title"&gt;Core Competencies&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Strategic Leadership&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Business Development&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;P&amp;L Management&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Digital Content Strategy&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Content Acquisition&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Negotiating &amp; Communication&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Team Building &amp; Motivation&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Product Management&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Brand Management&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Marketing &amp; Growth&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Internet &amp; Mobile Insights&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-lg skill-card"&gt;Adaptability&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Contact Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="contact" class="bg-indigo-700 text-white animated-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6 py-20 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;Let's Connect&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-8 max-w-2xl mx-auto text-indigo-200"&gt;I am passionate about building what's next in digital media and technology. For collaborations, strategic partnerships, or consulting opportunities, please connect with me through professional networks.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Contact details removed as per request --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-slate-800 text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto px-6 py-6 text-center text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; 2025 HuiLing (XuanXuan) Huang. All Rights Reserved.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Mobile menu toggle ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const mobileMenuButton = document.getElementById('mobile-menu-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const mobileMenu = document.getElementById('mobile-menu');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>mobileMenuButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mobileMenu.classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const mobileMenuLinks = mobileMenu.getElementsByTagName('a');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (let link of mobileMenuLinks) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>mobileMenu.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Intersection Observer for animations ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const animatedSections = document.querySelectorAll('.animated-section');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const observer = new IntersectionObserver((entries) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>entries.forEach(entry =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (entry.isIntersecting) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>entry.target.classList.add('is-visible');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>observer.unobserve(entry.target);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>threshold: 0.1<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>animatedSections.forEach(section =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>observer.observe(section);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Hero Canvas Particle Animation ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const canvas = document.getElementById('hero-canvas');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ctx = canvas.getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let particles = [];</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resizeCanvas() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>canvas.width = canvas.offsetWidth;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>canvas.height = canvas.offsetHeight;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createParticles() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>particles = [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const particleCount = Math.floor(canvas.width * canvas.height / 10000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; particleCount; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>particles.push({</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>x: Math.random() * canvas.width,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>y: Math.random() * canvas.height,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>vx: (Math.random() - 0.5) * 0.5,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>vy: (Math.random() - 0.5) * 0.5,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>radius: Math.random() * 1.5 + 0.5</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function animate() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>particles.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>p.x += p.vx;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>p.y += p.vy;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.x &lt; 0 || p.x &gt; canvas.width) p.vx *= -1;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.y &lt; 0 || p.y &gt; canvas.height) p.vy *= -1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fill();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Connect nearby particles</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; particles.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (let j = i + 1; j &lt; particles.length; j++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const dx = particles[i].x - particles[j].x;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const dy = particles[i].y - particles[j].y;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const dist = Math.sqrt(dx * dx + dy * dy);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (dist &lt; 100) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.moveTo(particles[i].x, particles[i].y);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.lineTo(particles[j].x, particles[j].y);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.lineWidth = 0.5;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>ctx.stroke();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>requestAnimationFrame(animate);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('load', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resizeCanvas();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>createParticles();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animate();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('resize', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">             </span>resizeCanvas();</p>
+<p class="p1"><span class="Apple-converted-space">             </span>createParticles();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
