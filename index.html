@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HuiLing (XuanXuan) Huang - Personal Website</title>
+    <title>HuiLing (Xuan) Huang - Personal Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,166 +11,299 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* bg-slate-50 */
+            background-color: #0a0a0a; /* Near-black background */
         }
         .section-title {
-            @apply text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center;
+            @apply text-3xl md:text-4xl font-bold text-slate-100 mb-12 text-center;
         }
-        .animated-section {
+        /* Gradient text for titles */
+        .gradient-text {
+            @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400;
+        }
+        /* Animation base */
+        .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        .animated-section.is-visible {
+        .fade-in-up.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .skill-card {
+        /* Hero text animation */
+        .hero-title, .hero-subtitle, .hero-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation-fill-mode: forwards;
+            animation-duration: 0.8s;
+            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .hero-title { animation-name: fadeInUp; animation-delay: 0.2s; }
+        .hero-subtitle { animation-name: fadeInUp; animation-delay: 0.4s; }
+        .hero-text { animation-name: fadeInUp; animation-delay: 0.6s; }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Card hover effect */
+        .card-hover {
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); /* Emerald shadow */
         }
+        /* Hero particle background */
         #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
         }
         .hero-content {
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
+        }
+        /* Timeline */
+        .timeline-line {
+            position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%;
+            background-image: linear-gradient(to bottom, transparent, #10b981, transparent); /* Emerald gradient */
+        }
+        .timeline-item { position: relative; width: 100%; }
+        @media (min-width: 768px) {
+            .timeline-item { width: 50%; }
+            .timeline-item:nth-child(odd) { padding-right: 3rem; align-self: flex-start; }
+            .timeline-item:nth-child(even) { padding-left: 3rem; align-self: flex-end; }
+            .timeline-dot {
+                position: absolute; top: 1.25rem; background-color: #0a0a0a; border: 3px solid #10b981;
+                width: 1rem; height: 1rem; border-radius: 9999px; transition: transform 0.3s, box-shadow 0.3s;
+                transform: scale(0);
+            }
+            .timeline-item.is-visible .timeline-dot {
+                transform: scale(1); transition-delay: 0.2s;
+                box-shadow: 0 0 15px #10b981;
+            }
+            .timeline-item:nth-child(odd) .timeline-dot { right: -0.5rem; }
+            .timeline-item:nth-child(even) .timeline-dot { left: -0.5rem; }
+            .timeline-content { transition-delay: 0.4s; }
         }
     </style>
 </head>
-<body class="text-slate-700">
+<body class="text-slate-300">
 
     <!-- Header & Navbar -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <header class="bg-black/70 backdrop-blur-md shadow-lg shadow-emerald-500/5 sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-slate-800">HuiLing Huang</a>
+            <a href="#" class="text-2xl font-bold text-slate-100">HuiLing Huang</a>
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="#about" class="text-slate-600 hover:text-indigo-600 transition duration-300">About</a>
-                <a href="#experience" class="text-slate-600 hover:text-indigo-600 transition duration-300">Experience</a>
-                <a href="#skills" class="text-slate-600 hover:text-indigo-600 transition duration-300">Skills</a>
-                <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Contact</a>
+                <a href="#about" class="text-slate-300 hover:text-emerald-400 transition duration-300">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-emerald-400 transition duration-300">Experience</a>
+                <a href="#skills" class="text-slate-300 hover:text-emerald-400 transition duration-300">Skills</a>
+                <a href="#contact" class="bg-emerald-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-emerald-400 transition duration-300">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+            <button id="mobile-menu-button" class="md:hidden text-slate-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-slate-600 hover:text-indigo-600">About</a>
-            <a href="#experience" class="block py-2 text-slate-600 hover:text-indigo-600">Experience</a>
-            <a href="#skills" class="block py-2 text-slate-600 hover:text-indigo-600">Skills</a>
-            <a href="#contact" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-full hover:bg-indigo-700">Contact</a>
+            <a href="#about" class="block py-2 text-slate-300 hover:text-emerald-400">About</a>
+            <a href="#experience" class="block py-2 text-slate-300 hover:text-emerald-400">Experience</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-emerald-400">Skills</a>
+            <a href="#contact" class="block mt-2 bg-emerald-500 text-black text-center px-4 py-2 rounded-md font-semibold hover:bg-emerald-400">Contact</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="relative overflow-hidden bg-slate-900">
+        <section id="hero" class="relative overflow-hidden bg-black">
             <canvas id="hero-canvas"></canvas>
             <div class="hero-content container mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">HuiLing (XuanXuan) Huang</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-300">Architecting Growth in Digital Media & Tech</p>
-                <p class="mt-6 max-w-3xl text-base text-slate-400">
-                    A seasoned executive architecting growth and transformation at the intersection of digital media, content, and technology.
+                <h1 class="hero-title text-4xl md:text-6xl font-extrabold text-white leading-tight">HuiLing (Xuan) Huang</h1>
+                <p class="hero-subtitle mt-4 text-lg md:text-xl text-slate-300">Growth Architect in Digital Media & Technology</p>
+                <p class="hero-text mt-6 max-w-3xl text-base text-slate-400">
+                    A results-driven executive who builds and scales transformative businesses at the intersection of content, media, and tech, delivering disruptive user experiences for global markets.
                 </p>
             </div>
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="py-24 animated-section">
+        <section id="about" class="py-24 fade-in-up">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">About Me</h2>
-                <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto">
-                    <p class="mb-4 text-lg text-slate-800">
-                        With a career spanning over two decades, I've been at the forefront of the digital media revolution, specializing in Audio & Video Product Management. My expertise is rooted in a deep-seated passion for the internet's power to connect content with audiences globally.
+                <h2 class="section-title gradient-text">About</h2>
+                <div class="bg-slate-900 p-8 md:p-12 rounded-lg shadow-lg card-hover">
+                    <div class="grid md:grid-cols-3 gap-8 text-center mb-10">
+                        <div>
+                            <div class="text-4xl font-bold text-emerald-400 flex justify-center items-baseline">
+                                <span data-counter-target="20">0</span><span>+</span>
+                            </div>
+                            <p class="text-slate-400 mt-2">Years of Industry Experience</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-emerald-400 flex justify-center items-baseline">
+                                <span data-counter-target="300">0</span><span>%</span>
+                            </div>
+                            <p class="text-slate-400 mt-2">B2B2C Sales Growth</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-emerald-400">GCR</div>
+                            <p class="text-slate-400 mt-2">Greater China Market Expert</p>
+                        </div>
+                    </div>
+                    <p class="mb-4 text-lg text-slate-200">
+                        With a career spanning over two decades, I have consistently operated at the forefront of the digital media revolution. My professional footprint covers Greater China and Southeast Asia, providing a deep, nuanced understanding of the regional digital ecosystems, with a specialization in audio-video product management.
                     </p>
-                    <p class="mb-4 text-slate-600">
-                        My journey has equipped me with a comprehensive mastery of the music industry's value chain—from strategic content acquisition and rights negotiation to innovative marketing and multi-platform distribution. I thrive in high-stakes, fast-paced environments, consistently delivering under pressure.
+                    <p class="mb-4 text-slate-400">
+                        This journey has forged a comprehensive mastery of the music industry's value chain—from strategic content acquisition and rights negotiation to innovative marketing and multi-platform distribution. Thriving in high-stakes, fast-paced environments is second nature, as is a track record of delivering exceptional results under pressure.
                     </p>
-                    <p class="text-slate-600">
-                        My track record is defined by transformative leadership. I orchestrated the turnaround of JOOX Hong Kong, steering the business from a loss to profitability within three years. In Taiwan, I spearheaded the strategic rebranding of MyMusic, successfully capturing the youth market and revitalizing the service.
+                    <p class="text-slate-400">
+                        Past performance is defined by transformational leadership. Key achievements include orchestrating the turnaround of JOOX Hong Kong, steering the business from loss to profitability in three years, and rebranding MyMusic in Taiwan to successfully capture the youth demographic and revitalize the service.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-slate-100 animated-section">
+        <section id="experience" class="py-24 bg-black fade-in-up">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="space-y-8 max-w-4xl mx-auto">
-                    <!-- Experience Cards -->
-                    <div class="bg-white p-6 rounded-lg shadow-md skill-card">
-                        <p class="text-sm text-indigo-600 font-semibold">Jan 2023 - Mar 2025</p>
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">VP of Business Development</h3>
-                        <p class="text-slate-600 mb-3">JingMi, Taiwan</p>
-                        <p class="text-slate-500">As a key leader in a pioneering hardware security startup, I drove business development strategy, identifying pivotal market opportunities and forging strategic partnerships. I bridged the gap between business and engineering, contributing directly to the advancement of next-generation cryptography chips and trusted platforms.</p>
+                <h2 class="section-title gradient-text">Experience</h2>
+                <div class="relative max-w-4xl mx-auto flex flex-col items-center">
+                    <div class="timeline-line hidden md:block"></div>
+                    <!-- Experience Items -->
+                    <div class="timeline-item">
+                        <div class="md:timeline-dot"></div>
+                        <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                            <p class="text-sm text-emerald-400 font-semibold">Jan 2023 - Mar 2025</p>
+                            <h3 class="text-xl font-bold text-slate-100 mt-1">VP of Business Development</h3>
+                            <p class="text-slate-400 mb-3">JingMi, Taiwan</p>
+                            <p class="text-slate-500">Drove business strategy for a pioneering hardware security startup. Identified key market opportunities, forged strategic partnerships, and bridged the gap between business and engineering to accelerate the development of next-gen cryptography chips.</p>
+                        </div>
                     </div>
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2019 - 2022</p>
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">Head of JOOX Hong Kong & Head of License</h3>
-                        <p class="text-slate-600 mb-3">Tencent, Hong Kong</p>
-                        <p class="text-slate-500">As Head of JOOX HK, I held full P&L responsibility, steering the streaming service to market leadership and profitability. I cultivated a high-performance culture that resulted in 300% growth in B2B2C sales and 150% in B2C sales, while optimizing content acquisition costs.</p>
+                     <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Mar 2019 - Dec 2022</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Head of JOOX Hong Kong & Head of License</h3>
+                           <p class="text-slate-400 mb-3">Tencent, Hong Kong</p>
+                           <p class="text-slate-500">Held full P&L responsibility, steering the streaming service to market leadership and profitability in Hong Kong and SEA. Cultivated a high-performance culture, achieving 300% B2B2C and 150% B2C sales growth while optimizing content acquisition costs.</p>
+                        </div>
                     </div>
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2017 - 2018</p>
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">VP of MyMusic / Deputy Director</h3>
-                        <p class="text-slate-600 mb-3">Taiwan Mobile, Taipei, Taiwan</p>
-                        <p class="text-slate-500">I redefined the brand identity and vision for MyMusic, repositioning the service for a younger demographic. By leading cross-functional teams across product, marketing, and sales, I reshaped the user experience and drove engagement on emerging smart devices.</p>
+                     <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Mar 2017 - Sep 2018</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">VP of MyMusic / Deputy Director</h3>
+                           <p class="text-slate-400 mb-3">Taiwan Mobile, Taipei, Taiwan</p>
+                           <p class="text-slate-500">Redefined the brand identity and vision for MyMusic, successfully repositioning the service for a younger demographic in Taiwan. Led cross-functional teams to reshape the user experience and drive engagement on emerging smart devices.</p>
+                        </div>
                     </div>
-                     <div class="bg-white p-6 rounded-lg shadow-md skill-card">
-                        <p class="text-sm text-indigo-600 font-semibold">Mar 2011 - Mar 2016</p>
-                        <h3 class="text-xl font-bold text-slate-800 mt-1">Sr. Director, Global Content Division</h3>
-                        <p class="text-slate-600 mb-3">HTC Corporation, Taipei, Taiwan</p>
-                        <p class="text-slate-500">I directed global content strategy, spearheading the launch of the HTC Watch movie service across 16 countries. My role encompassed high-stakes negotiations for content rights, virtual reality experiences, and major celebrity endorsements, including the landmark deal with Robert Downey Jr.</p>
+                     <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Mar 2011 - Mar 2016</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Sr. Director, Global Content Division</h3>
+                           <p class="text-slate-400 mb-3">HTC Corporation, Taipei, Taiwan</p>
+                           <p class="text-slate-500">Directed global content strategy with a focus on execution in Asian markets. Responsibilities included high-stakes content rights negotiations, VR experience partnerships, and landmark endorsement deals with global celebrities like Robert Downey Jr.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Oct 2010 - Mar 2011</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Sr. Product Manager, Music Solutions</h3>
+                           <p class="text-slate-400 mb-3">Nokia Corporation, Beijing, China</p>
+                           <p class="text-slate-500">Oversaw music service product strategy for the Chinese market, driving product development to meet local user demands.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Mar 2008 - Oct 2010</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Head of Marketing</h3>
+                           <p class="text-slate-400 mb-3">Sony Music, Beijing, China</p>
+                           <p class="text-slate-500">Led the marketing department for Sony Music in Beijing, managing artist promotions and brand building across Greater China.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">May 2005 - Feb 2008</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Sr. Product Manager, Music & Sales Programs</h3>
+                           <p class="text-slate-400 mb-3">Yahoo! Taiwan, Taipei, Taiwan</p>
+                           <p class="text-slate-500">Managed music products and sales programs within the media group, creating new revenue streams by integrating content and e-commerce.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Apr 2004 - Apr 2005</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Director, Music & Media, Int'l Business Dept.</h3>
+                           <p class="text-slate-400 mb-3">Tencent, Shenzhen, China</p>
+                           <p class="text-slate-500">In Tencent's early stages, managed music and media strategy for the international business unit, laying the groundwork for its future entertainment empire.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">May 2001 - Jan 2002</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Marketing Manager, Domestic Division</h3>
+                           <p class="text-slate-400 mb-3">Sony Music, Taiwan</p>
+                           <p class="text-slate-500">Directed marketing strategies for local Taiwanese artists, successfully launching multiple album releases and promotional campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Apr 1998 - Feb 2001</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Chief of Staff to Pan-China Director & Creative Marketing Manager</h3>
+                           <p class="text-slate-400 mb-3">BMG Music, Taiwan</p>
+                           <p class="text-slate-500">Held a dual role in the early stages of my career, managing creative marketing while serving as Chief of Staff, building a strong foundation in the Greater China music industry.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item mt-8 md:mt-0">
+                        <div class="md:timeline-dot"></div>
+                         <div class="timeline-content fade-in-up bg-slate-900 p-6 rounded-lg shadow-md card-hover">
+                           <p class="text-sm text-emerald-400 font-semibold">Jul 1994 - Mar 1998</p>
+                           <h3 class="text-xl font-bold text-slate-100 mt-1">Creative Marketing Manager</h3>
+                           <p class="text-slate-400 mb-3">Rock Records, Taiwan</p>
+                           <p class="text-slate-500">During the golden era of Rock Records, I developed creative marketing campaigns for album releases, successfully shaping the market positioning for numerous iconic artists.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 animated-section">
+        <section id="skills" class="py-24 fade-in-up">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">Core Competencies</h2>
+                <h2 class="section-title gradient-text">Core Competencies</h2>
                 <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
-                    <div class="bg-white p-5 rounded-lg skill-card">Strategic Leadership</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Business Development</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">P&L Management</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Digital Content Strategy</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Content Acquisition</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Negotiating & Communication</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Team Building & Motivation</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Product Management</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Brand Management</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Marketing & Growth</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Internet & Mobile Insights</div>
-                    <div class="bg-white p-5 rounded-lg skill-card">Adaptability</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Strategic Leadership</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Business Development</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">P&L Management</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Digital Content Strategy</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Content Acquisition</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Brand Management</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Team Building</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Product Management</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Go-to-Market Strategy</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Cross-Border Market Entry</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Startup Operations</div>
+                    <div class="skill-card bg-slate-900 p-5 rounded-lg card-hover">Strategic Partnerships</div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="bg-indigo-700 text-white animated-section">
+        <section id="contact" class="bg-emerald-900/20 fade-in-up">
             <div class="container mx-auto px-6 py-20 text-center">
-                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-                <p class="mb-8 max-w-2xl mx-auto text-indigo-200">I am passionate about building what's next in digital media and technology. For collaborations, strategic partnerships, or consulting opportunities, please connect with me through professional networks.</p>
-                <!-- Contact details removed as per request -->
+                <h2 class="text-3xl font-bold mb-4 text-white">Let's Connect</h2>
+                <p class="mb-8 max-w-2xl mx-auto text-slate-400">I am passionate about building the future of digital media and technology. For collaborations, strategic partnerships, or consulting opportunities, please get in touch via professional networks.</p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-800 text-white">
-        <div class="container mx-auto px-6 py-6 text-center text-slate-400">
-            <p>&copy; 2025 HuiLing (XuanXuan) Huang. All Rights Reserved.</p>
+    <footer class="bg-black">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
+            <p>&copy; 2025 HuiLing (Xuan) Huang. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -187,20 +320,58 @@
                  mobileMenu.classList.add('hidden');
             });
         }
+        
+        // --- Counter Animation ---
+        function animateCounter(element) {
+            const target = +element.getAttribute('data-counter-target');
+            let current = 0;
+            const increment = target / 100;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.innerText = target.toLocaleString();
+                    clearInterval(interval);
+                } else {
+                    element.innerText = Math.ceil(current).toLocaleString();
+                }
+            }, 20);
+        }
 
         // --- Intersection Observer for animations ---
-        const animatedSections = document.querySelectorAll('.animated-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                    // Animate counters
+                    if (entry.target.id === 'about') {
+                        const counters = entry.target.querySelectorAll('[data-counter-target]');
+                        counters.forEach(animateCounter);
+                    }
+                    // Staggered animation for skills
+                    if (entry.target.id === 'skills') {
+                        const skillCards = entry.target.querySelectorAll('.skill-card');
+                        skillCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('is-visible');
+                            }, index * 80);
+                        });
+                    }
+                     // Animate timeline items
+                    if (entry.target.id === 'experience') {
+                         const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                         timelineItems.forEach((item, index) => {
+                             setTimeout(() => {
+                                 item.classList.add('is-visible');
+                             }, index * 200);
+                         });
+                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, {
             threshold: 0.1 
         });
-        animatedSections.forEach(section => {
+        document.querySelectorAll('.fade-in-up').forEach(section => {
             observer.observe(section);
         });
 
@@ -208,15 +379,14 @@
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        
         function resizeCanvas() {
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
         }
-
         function createParticles() {
             particles = [];
-            const particleCount = Math.floor(canvas.width * canvas.height / 10000);
+            if (canvas.width === 0) return;
+            const particleCount = Math.floor(canvas.width * canvas.height / 15000);
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
@@ -227,55 +397,43 @@
                 });
             }
         }
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
             particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-
+                p.x += p.vx; p.y += p.vy;
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                ctx.fillStyle = 'rgba(16, 185, 129, 0.3)'; // Emerald particles
                 ctx.fill();
             });
-
-            // Connect nearby particles
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 100) {
+                    if (dist < 120) {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(16, 185, 129, ${1 - dist / 120})`; // Emerald lines
+                        ctx.lineWidth = 0.3;
                         ctx.stroke();
                     }
                 }
             }
-
             requestAnimationFrame(animate);
         }
-
         window.addEventListener('load', () => {
             resizeCanvas();
             createParticles();
-            animate();
+            requestAnimationFrame(animate);
         });
-
         window.addEventListener('resize', () => {
              resizeCanvas();
              createParticles();
         });
-
     </script>
 </body>
 </html>
